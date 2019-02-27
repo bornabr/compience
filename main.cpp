@@ -27,6 +27,8 @@ int main(){
 	for ( std::vector<std::string>::iterator it = elements.begin(); it != elements.end(); ++it ) {
 		bool is_number = true;
 		for ( std::string::iterator cit = it->begin(); cit != it->end(); ++cit)
+			if (cit == it->begin() && *cit == '-')
+				continue;
 			if (not isdigit(*cit))
 				is_number = false;
 
