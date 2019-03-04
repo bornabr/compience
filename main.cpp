@@ -7,7 +7,6 @@ int main() {
 	std::string input;
 	std::getline(std::cin, input);
 	input.push_back(' ');
-
 	std::vector <std::string> elements;
 
 	std::string temp;
@@ -27,13 +26,13 @@ int main() {
 	std::string operation_type = "+";
 	for (std::vector<std::string>::iterator it = elements.begin(); it != elements.end(); ++it) {
 		bool is_number = true;
-		for ( std::string::iterator cit = it->begin(); cit != it->end(); ++cit)
-			if (cit == it->begin() && *cit == '-')
-				continue;
+		for ( std::string::iterator cit = it->begin(); cit != it->end(); ++cit) {
 
+			if (cit == it->begin() && *cit == '-' && (*it).length() > 1)
+				continue;
 			if (not isdigit(*cit))
 				is_number = false;
-
+		}
 		if (is_number) {
 			if (wait_for_number) {
 				if (operation_type == "+") {
